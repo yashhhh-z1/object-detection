@@ -1,0 +1,109 @@
+<!-- detection/templates/detection/upload.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object Detection - Upload</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #eceef2;
+        color: #333;
+        font-family: Arial, sans-serif;
+      }
+      .navbar {
+        background-color: #f05454 !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .navbar-brand {
+        font-weight: bold;
+        font-size: 24px;
+        text-align: center;
+        width: 100%;
+      }
+      .navbar-nav {
+        display: none;
+      }
+      .container {
+        margin-top: 50px;
+      }
+      h1,
+      h2 {
+        font-weight: bold;
+        text-align: center;
+      }
+      .form-group label {
+        color: #333;
+      }
+      .btn-primary {
+        background-color: #007bff;
+        border: none;
+      }
+      .btn-primary:hover {
+        background-color: #0056b3;
+      }
+      .instructions,
+      .authors {
+        margin-top: 30px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="/">Object Detection</a>
+    </nav>
+
+    <div class="container">
+      <h1 class="mb-4">Upload Image for Object Detection</h1>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="image">Choose an image:</label>
+          <input
+            type="file"
+            class="form-control-file"
+            id="image"
+            name="image"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+      </form>
+
+      <div class="instructions mt-5">
+        <h2>Instructions</h2>
+        <p>To use this object detection tool:</p>
+        <ol>
+          <li>
+            Click "Choose an image" to select an image file from your computer.
+          </li>
+          <li>
+            Click "Upload" to upload the image and start the object detection
+            process.
+          </li>
+          <li>
+            Wait a moment for the detection to complete, and you will be
+            redirected to the results page.
+          </li>
+        </ol>
+      </div>
+
+      <div class="authors mt-5">
+        <h2>Authors</h2>
+        <p>This project was created by Omkar Khandare and Yash Mahadik.</p>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
